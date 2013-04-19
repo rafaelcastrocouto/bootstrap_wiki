@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block controls %}
+  {% if user %}
+  <a href="/_edit{{path}}">Edit</a> |
+  {% endif %}
+  <a href="{{path}}">View</a> 
+{% endblock %}
+
+
+{% block content %}
+  {% for p in posts %} 
+  <div class="row">
+    <div class="date box">
+      {{ p.last_modified.strftime("%c") }}
+    </div>
+
+    <div class="link box">
+      {% if user %}
+      <a href="/_edit{{path}}?v={{p.key().id()}}">Edit</a> |
+      {% endif %}
+      <a href="{{path}}?v={{p.key().id()}}">View</a>
+    </div>
+    
+
+    <div class="content box">
+      {{ p.content[:100] }}
+    </div>
+
+  </div>
+  {% endfor %} 
+{% endblock %}

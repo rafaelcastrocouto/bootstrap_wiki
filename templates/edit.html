@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block controls %}
+  {% if page %}
+  <a href="{{path}}">View</a> |
+  <a href="/_history{{path}}">History</a> 
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="box">
+    <form method="post">
+      <label for="content">Edit the content</label>
+      <div class="clean">
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-wysihtml5.css"></link>
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css"></link>
+        
+        <textarea name="content" id="wysihtml5">{{page and page.content or ""}}</textarea>
+        
+        <script src="/static/js/wysihtml5-0.3.0.js"></script>
+        <script src="/static/js/jquery-1.7.2.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/bootstrap-wysihtml5.js"></script>
+        
+      </div>
+      <input type="submit"></input>
+    </form>
+  </div>
+{% endblock %}

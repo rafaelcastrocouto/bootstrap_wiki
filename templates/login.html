@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+  </head>
+  <body>
+    <h2>Login</h2>
+    <form method="post">
+      <div class="box">
+        <label for="username">Username</label>
+        <input type="text" name="username" value="{{username}}">
+      </div>
+      <div class="box">
+        <label for="password">Password</label>
+        <input type="password" name="password" value="">     
+      </div>
+      <div class="error">{{error}}</div>
+      <input type="submit">
+    </form>
+  </body>
+</html>

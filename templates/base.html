@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+    <title>CS 253 Wiki</title>
+  </head>
+  <body>
+    <div class="login box">
+      {% if user %}
+        Logged as: <b>{{user.name}}</b> (<a href="/logout">Logout</a>)
+      {% else %}
+        <a href="/login">Login</a> | 
+        <a href="/signup">Signup</a>
+      {% endif %}
+    </div>
+    <div class="controls box">
+      {% block controls %}
+      {% endblock %}
+    </div>
+    <h1><a href="/">CS 253 Wiki</a></h1>
+    <div id="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
+
